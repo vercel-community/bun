@@ -1,14 +1,9 @@
-import type { Server, ServerWebSocket } from "bun";
+import type { Server } from "bun";
 import main from "./src/main"
 
 type Lambda = {
   fetch: (request: Request, server: Server) => Promise<Response | undefined>;
   error?: (error: unknown) => Promise<Response>;
-  websocket?: {
-    open?: (ws: ServerWebSocket) => Promise<void>;
-    message?: (ws: ServerWebSocket, message: string) => Promise<void>;
-    close?: (ws: ServerWebSocket, code: number, reason: string) => Promise<void>;
-  };
 };
 
 let requestId: string | undefined;
@@ -288,7 +283,6 @@ class LambdaServer implements Server {
     this.#lambda = {
       fetch: options.fetch ?? this.#lambda.fetch,
       error: options.error ?? this.#lambda.error,
-      websocket: options.websocket ?? this.#lambda.websocket,
     };
     this.port =
       typeof options.port === "number"
