@@ -1,4 +1,5 @@
 .env
+.DS_Store
 bootstrap
 node_modules
 project.json
