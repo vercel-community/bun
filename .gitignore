@@ -1,0 +1,4 @@
+.env
+bootstrap
+node_modules
+project.json

@@ -1,0 +1,26 @@
+{
+  "framework" : {
+    "version" : "5.8.0"
+  },
+  "overrides" : {
+
+  },
+  "routes" : [
+    {
+      "headers" : {
+        "Location" : "\/$1"
+      },
+      "src" : "^(?:\/((?:[^\/]+?)(?:\/(?:[^\/]+?))*))\/$",
+      "status" : 308
+    },
+    {
+      "handle" : "filesystem"
+    },
+    {
+      "check" : true,
+      "dest" : "App",
+      "src" : "^.*$"
+    }
+  ],
+  "version" : 3
+}
