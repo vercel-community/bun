@@ -203,7 +203,8 @@ type VercelEventParsedBody = {
 
 function formatVercelEvent(event: VercelEvent): Request {
   const payload = JSON.parse(event.body) as VercelEventParsedBody
-  return new Request(`https://lambda${payload.path}`, {
+  const host = payload.headers['x-forwarded-host']
+  return new Request(`https://${host}${payload.path}`, {
     method: payload.method,
     body: payload.body,
     headers: payload.headers,
