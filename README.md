@@ -2,6 +2,8 @@
 
 Run [Bun](https://bun.sh) on Vercel Serverless Functions
 
+[https://bun-vercel.vercel.app/](https://bun-vercel.vercel.app/)
+
 > This is an experimental project and should not be used in production. This project is not endorsed by Vercel.
 
 ## Get Started
