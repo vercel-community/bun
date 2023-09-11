@@ -7,4 +7,4 @@ build:
 		-v $(CURDIR):/app \
 		-w /app \
 		oven/bun \
-		bash -cl "bun run build"
+		bash -cl "bun build bootstrap.ts --compile --minify --outfile .vercel/output/functions/App.func/bootstrap"

@@ -5,6 +5,6 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "build": "bun build ./src/bootstrap.ts --compile --minify --outfile ./.vercel/output/functions/App.func/bootstrap"
+    "dev": "bun run src/main.ts"
   }
 }

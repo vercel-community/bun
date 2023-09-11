@@ -1,5 +1,5 @@
 import type { Server, ServerWebSocket } from "bun";
-import main from "./main"
+import main from "./src/main"
 
 type Lambda = {
   fetch: (request: Request, server: Server) => Promise<Response | undefined>;
