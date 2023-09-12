@@ -6,6 +6,22 @@ Run [Bun](https://bun.sh) on Vercel Serverless Functions
 
 > This is an experimental project and should not be used in production. This project is not endorsed by Vercel.
 
+```typescript
+// src/main.ts
+import type { Server } from "bun"
+
+export default {
+  async fetch(request: Request, server: Server) {
+    return new Response("Hello from Bun on Vercel", {
+      status: 200,
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+    })
+  },
+}
+```
+
 ## Get Started
 
 There are two ways to deploy your project to Vercel:
