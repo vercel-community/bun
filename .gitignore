@@ -1,4 +1,5 @@
 .env
+.vercel
 .DS_Store
 bootstrap
 node_modules
