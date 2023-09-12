@@ -1,4 +1,3 @@
-#!/bin/bun
 import { exists, mkdir, unlink } from "node:fs/promises"
 
 // Ex. ./src/main.ts
@@ -16,7 +15,9 @@ const bootstrapSourcePath = mainModulePath.replace(
 )
 
 // Read in bootstrap source
-const bootstrapSource = await Bun.file("bootstrap.ts").text()
+const bootstrapSource = await Bun.file(
+  "node_modules/bun-vercel/bootstrap.ts",
+).text()
 
 // Write boostrap source to bootstrap file
 await Bun.write(
