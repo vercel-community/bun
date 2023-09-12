@@ -13,7 +13,7 @@ Run [Bun](https://bun.sh) on Vercel Serverless Functions
 ```json
 {
   "devDependencies": {
-    "bun-vercel": "^1.0.0-alpha.3",
+    "bun-vercel": "^1.0.0-alpha.4",
   }
 }
 ```

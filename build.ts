@@ -15,9 +15,9 @@ const bootstrapSourcePath = mainModulePath.replace(
 )
 
 // Read in bootstrap source
-const bootstrapSource = await Bun.file(
-  "node_modules/bun-vercel/bootstrap.ts",
-).text()
+const bootstrapSource = await Bun.file("node_modules/bun-vercel/bootstrap.ts")
+  .text()
+  .catch(() => Bun.file("bootstrap.ts").text())
 
 // Write boostrap source to bootstrap file
 await Bun.write(
@@ -84,18 +84,39 @@ await Bun.write(
 )
 
 // Compile to a single bun executable
-await Bun.spawnSync({
-  cmd: [
-    "bun",
-    "build",
-    bootstrapSourcePath,
-    "--compile",
-    "--minify",
-    "--outfile",
-    ".vercel/output/functions/App.func/bootstrap",
-  ],
-  stdout: "pipe",
-})
+if (await exists("/etc/system-release")) {
+  await Bun.spawnSync({
+    cmd: [
+      "bun",
+      "build",
+      bootstrapSourcePath,
+      "--compile",
+      "--minify",
+      "--outfile",
+      ".vercel/output/functions/App.func/bootstrap",
+    ],
+    stdout: "pipe",
+  })
+} else {
+  await Bun.spawnSync({
+    cmd: [
+      "docker",
+      "run",
+      "--platform",
+      `linux/${process.arch}`,
+      "--rm",
+      "-v",
+      `${process.cwd()}:/app`,
+      "-w",
+      "/app",
+      "oven/bun",
+      "bash",
+      "-cl",
+      `bun build ${bootstrapSourcePath} --compile --minify --outfile .vercel/output/functions/App.func/bootstrap`,
+    ],
+    stdout: "pipe",
+  })
+}
 
 // Cleanup bootstrap file
 await unlink(bootstrapSourcePath)
