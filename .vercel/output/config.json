@@ -1,26 +1,24 @@
 {
-  "framework" : {
-    "version" : "5.8.0"
+  "framework": {
+    "version": "5.8.0"
   },
-  "overrides" : {
-
-  },
-  "routes" : [
+  "overrides": {},
+  "routes": [
     {
-      "headers" : {
-        "Location" : "\/$1"
+      "headers": {
+        "Location": "/$1"
       },
-      "src" : "^(?:\/((?:[^\/]+?)(?:\/(?:[^\/]+?))*))\/$",
-      "status" : 308
+      "src": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$",
+      "status": 308
     },
     {
-      "handle" : "filesystem"
+      "handle": "filesystem"
     },
     {
-      "check" : true,
-      "dest" : "App",
-      "src" : "^.*$"
+      "check": true,
+      "dest": "App",
+      "src": "^.*$"
     }
   ],
-  "version" : 3
+  "version": 3
 }

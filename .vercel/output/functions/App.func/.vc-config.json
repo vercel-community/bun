@@ -1,8 +1,8 @@
 {
-  "architecture" : "arm64",
-  "handler" : "bootstrap",
-  "maxDuration" : 10,
-  "memory" : 1024,
-  "runtime" : "provided.al2",
-  "supportsWrapper" : false
+  "architecture": "arm64",
+  "handler": "bootstrap",
+  "maxDuration": 10,
+  "memory": 1024,
+  "runtime": "provided.al2",
+  "supportsWrapper": false
 }

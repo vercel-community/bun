@@ -1,7 +1,12 @@
 {
   "name": "bun-vercel",
+  "type": "module",
+  "bin": {
+    "bun-vercel": "./build.ts"
+  },
   "devDependencies": {
     "bun-types": "^1.0.1",
+    "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },
   "scripts": {
