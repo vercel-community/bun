@@ -8,6 +8,15 @@ Run [Bun](https://bun.sh) on Vercel Serverless Functions
 
 ## Get Started
 
+There are two way to deploy your project to Vercel:
+
+1. GitHub integration
+2. Manually from your computer
+
+## GitHub Integration
+
+> Note: An issue in Bun must be resolved before this method is fully operational
+
 #### 1. Update your package.json with `bun-vercel`:
 
 ```json
@@ -35,3 +44,13 @@ Run [Bun](https://bun.sh) on Vercel Serverless Functions
   "buildCommand": "bun run build"
 }
 ```
+
+## Manually
+
+Before starting you should follow the same setup steps as the GitHub integration, as they will be needed regardless.
+
+> Note: To deploy from your computer you must have Docker installed so we can build for Amazon Linux
+
+1. Install the Vercel CLI and run `vercel link`
+2. Run `bun run build`
+3. Run `vercel deploy --prebuilt --prod`
