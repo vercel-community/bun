@@ -13,11 +13,11 @@ There are two way to deploy your project to Vercel:
 1. GitHub integration
 2. Manually from your computer
 
-## GitHub Integration
+### GitHub Integration
 
 > Note: An issue in Bun must be resolved before this method is fully operational
 
-#### 1. Update your package.json with `bun-vercel`:
+#### 1. Update your package.json with `bun-vercel`
 
 ```json
 {
@@ -27,7 +27,7 @@ There are two way to deploy your project to Vercel:
 }
 ```
 
-#### 2. Update the `build` script run bun-vercel:
+#### 2. Update the `build` script run bun-vercel
 
 ```json
 {
@@ -37,7 +37,7 @@ There are two way to deploy your project to Vercel:
 }
 ```
 
-#### 3. Add a `vercel.json` with your build command:
+#### 3. Add a `vercel.json` with your build command
 
 ```json
 {
@@ -45,7 +45,7 @@ There are two way to deploy your project to Vercel:
 }
 ```
 
-## Manually
+### Manually
 
 Before starting you should follow the same setup steps as the GitHub integration, as they will be needed regardless.
 
