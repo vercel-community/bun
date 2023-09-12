@@ -8,7 +8,7 @@ Run [Bun](https://bun.sh) on Vercel Serverless Functions
 
 ## Get Started
 
-There are two way to deploy your project to Vercel:
+There are two ways to deploy your project to Vercel:
 
 1. GitHub integration
 2. Manually from your computer
