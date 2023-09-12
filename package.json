@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.1",
   "type": "module",
   "bin": {
-    "bun-vercel": "./build.ts"
+    "bun-vercel": "./build.sh"
   },
   "devDependencies": {
     "bun-types": "^1.0.1",
