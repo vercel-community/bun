@@ -56,7 +56,7 @@ await Bun.write(
   JSON.stringify(
     {
       framework: {
-        version: "5.8.0",
+        version: Bun.version,
       },
       overrides: {},
       routes: [
