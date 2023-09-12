@@ -8,7 +8,30 @@ Run [Bun](https://bun.sh) on Vercel Serverless Functions
 
 ## Get Started
 
-1. Install the Vercel CLI and run `vercel link`
-2. Install [OrbStack](https://orbstack.dev) or [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-3. Run `make build` which builds a Lambda executable on docker
-4. Run `vercel deploy --prebuilt`
+#### 1. Update your package.json with `bun-vercel`:
+
+```json
+{
+  "devDependencies": {
+    "bun-vercel": "^1.0.0-alpha.2",
+  }
+}
+```
+
+#### 2. Update the `build` script run bun-vercel:
+
+```json
+{
+  "scripts": {
+    "build": "bun-vercel ./src/main.ts"
+  }
+}
+```
+
+#### 3. Add a `vercel.json` with your build command:
+
+```json
+{
+  "buildCommand": "bun run build"
+}
+```
