@@ -1,3 +1,4 @@
+#!/bin/bun
 import { exists, mkdir, unlink } from "node:fs/promises"
 
 // Ex. ./src/main.ts
