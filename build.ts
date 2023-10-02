@@ -8,6 +8,9 @@ if ((await exists(mainModulePath)) !== true) {
   throw new Error(`module not found: ${mainModulePath}`)
 }
 
+// Get current architecture for build
+const arch = process.arch === 'arm64' ? 'arm64' : 'x86_64'
+
 // Bootstrap source should be in same directory as main
 const bootstrapSourcePath = mainModulePath.replace(
   /\.(ts|js|cjs|mjs)$/,
@@ -38,7 +41,7 @@ await Bun.write(
   "./.vercel/output/functions/App.func/.vc-config.json",
   JSON.stringify(
     {
-      architecture: process.arch,
+      architecture: arch,
       handler: "bootstrap",
       maxDuration: 10,
       memory: 1024,
@@ -103,7 +106,7 @@ if (await exists("/etc/system-release")) {
       "docker",
       "run",
       "--platform",
-      `linux/${process.arch}`,
+      `linux/${arch}`,
       "--rm",
       "-v",
       `${process.cwd()}:/app`,
